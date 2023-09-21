@@ -1,5 +1,13 @@
+terraform {
+  required_providers {
+    azurerm = {
+      source = "hashicorp/azurerm"
+      version = "~>2.0"
+    }
+  }
+}
+
 provider "azurerm" {
-  version         = "~> 4.16"
   subscription_id = var.azure_subscription_id
   client_id       = var.azure_client_id
   client_secret   = var.azure_client_secret
@@ -7,9 +15,7 @@ provider "azurerm" {
   features {}
 }
 
-provider "random" {
-  version = "~> 2.2"
-}
+
 
 module "workshop-core" {
   source                    = "../../../resources/terraform-modules//azure-ws-core"
